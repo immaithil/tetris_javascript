@@ -1,0 +1,56 @@
+<html>
+<link rel="stylesheet" href="style.css">
+
+<head>
+    <title>Tetris Game JS</title>
+    <style>
+        
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h4 class="company">NEWTON</h4>
+        <div class="screen">
+            <canvas id="tetris" width="200" height="400"></canvas>
+
+            <div class="scoreBoard">
+                SCORE : <div id="score">0</div>
+                LEVEL : <div id="level">1</div>
+            </div>
+        </div>
+        <div class="keys">
+            <div id="mainKeys">
+                <button class="random" id="increase" onclick="levelUp()">+</button>
+                <button class="random" onclick="levelDown()" >-</button>
+                <button id="reset" class="random" onclick="window.location.reload();" >R</button> 
+                <button id="bigButton">Drop</button>
+            </div>
+            <div id="console">
+                <button class="consoleKeys" id="up">U</button><button class="consoleKeys" id="left">L</button><button
+                    class="consoleKeys" id="right">R</button><button class="consoleKeys" id="down">D</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="bannerHide" id="banner">
+        <h2>Game Over</h2>
+        Your Score : <div id="yourScore"></div>
+        <button id="replay" onclick="window.location.reload()">Replay</button>
+    </div>
+
+    <audio id="selection"  src="/rotateSound.wav"></audio>
+    <audio id="move" src="http://www.bndclan.com/Bend3r/Bend3r/hl-content/cstrike/sound/tetris/line.wav"></audio>
+    <audio id="gameOver" src="/gameOver.wav"></audio>
+    <audio  id="line" src="/lineRemove.wav"></audio>
+    <audio id="drop" src="/dropTetro.wav"></audio>
+    <audio id="replaySound" src="/startGame.wav"></audio>
+    <audio id="longDrop" src="/bigDrop.wav"></audio>
+    <audio id="upAndDown" src="http://www.bndclan.com/Bend3r/Bend3r/hl-content/cstrike/sound/tetris/selection.wav"></audio>
+
+    <script src="tetrominoes.js"></script>
+    <script src="tetris.js"></script>
+</body>
+
+</html>
