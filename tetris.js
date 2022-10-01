@@ -185,9 +185,8 @@ Piece.prototype.lock = function(){
             }
             // we lock the piece
             board[this.y+r][this.x+c] = this.color;
-            score= score+1;
-            scoreElement.innerHTML=score;
-            yourScoreElement.innerHTML=score;
+         
+            
         }
     }
     // remove full rows
@@ -217,6 +216,7 @@ Piece.prototype.lock = function(){
     drawBoard();
     
     // update the score
+    yourScoreElement.innerHTML=score;
     scoreElement.innerHTML = score;
 }
 
