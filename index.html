@@ -4,7 +4,7 @@
 <head>
     <title>Tetris Game JS</title>
     <style>
-        
+
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -24,12 +24,14 @@
             <div id="mainKeys">
                 <button class="random" id="increase" onclick="levelUp()">+</button>
                 <button class="random" onclick="levelDown()" >-</button>
-                <button id="reset" class="random" onclick="window.location.reload();" >R</button> 
+                <button id="reset" class="random" onclick="window.location.reload();" >R</button>
                 <button id="bigButton">Drop</button>
             </div>
             <div id="console">
-                <button class="consoleKeys" id="up">U</button><button class="consoleKeys" id="left">L</button><button
-                    class="consoleKeys" id="right">R</button><button class="consoleKeys" id="down">D</button>
+                <button class="consoleKeys" id="up" accesskey="u">U</button><button class="consoleKeys" id="left"
+                	accesskey="l">L</button><button
+                    class="consoleKeys" id="right" accesskey="r">R</button><button class="consoleKeys"
+                    	id="down" accesskey="d">D</button>
             </div>
         </div>
     </div>
