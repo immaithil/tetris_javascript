@@ -67,10 +67,10 @@ let p = randomPiece();
 function Piece(tetromino,color){
     this.tetromino = tetromino;
     this.color = color;
-    
+
     this.tetrominoN = 0; // we start from the first pattern
     this.activeTetromino = this.tetromino[this.tetrominoN];
-    
+
     // we need to control the pieces
     this.x = 3;
     this.y = -2;
@@ -114,7 +114,7 @@ Piece.prototype.moveDown = function(){
         this.lock();
         p = randomPiece();
     }
-    
+
 }
 
 // move Right the piece
@@ -139,7 +139,7 @@ Piece.prototype.moveLeft = function(){
 Piece.prototype.rotate = function(){
     let nextPattern = this.tetromino[(this.tetrominoN + 1)%this.tetromino.length];
     let kick = 0;
-    
+
     if(this.collision(0,0,nextPattern)){
         if(this.x > COL/2){
             // it's the right wall
@@ -149,7 +149,7 @@ Piece.prototype.rotate = function(){
             kick = 1; // we need to move the piece to the right
         }
     }
-    
+
     if(!this.collision(kick,0,nextPattern)){
         this.unDraw();
         this.x += kick;
@@ -185,8 +185,8 @@ Piece.prototype.lock = function(){
             }
             // we lock the piece
             board[this.y+r][this.x+c] = this.color;
-         
-            
+
+
         }
     }
     // remove full rows
@@ -214,7 +214,7 @@ Piece.prototype.lock = function(){
     }
     // update the board
     drawBoard();
-    
+
     // update the score
     yourScoreElement.innerHTML=score;
     scoreElement.innerHTML = score;
@@ -232,7 +232,7 @@ Piece.prototype.collision = function(x,y,piece){
             // coordinates of the piece after movement
             let newX = this.x + c + x;
             let newY = this.y + r + y;
-            
+
             // conditions
             if(newX < 0 || newX >= COL || newY >= ROW){
                 return true;
@@ -252,32 +252,33 @@ Piece.prototype.collision = function(x,y,piece){
 
 // CONTROL the piece
 
+
 document.addEventListener("click",CONTROL);
 
 function CONTROL(event){
-    if(event.target.id == 'left'){
+    if(event.target.id == 'left' || event.target.accesskey == 'l'){
         play('drop');
         p.moveLeft();
         dropStart = Date.now();
-    }else if(event.target.id == 'up'){
+		} else if (event.target.id=='up'||event.target.accesskey=='u'){
         play('move');
         p.rotate();
         dropStart = Date.now();
-    }else if(event.target.id == 'right'){
+		} else if (event.target.id=='right'||event.target.accesskey=='r'){
         play('drop');
         p.moveRight();
         dropStart = Date.now();
-    }else if(event.target.id == 'down'){
+		} else if (event.target.id=='down'||event.target.accesskey=='d'){
         play("drop");
         p.moveDown();
     }
     // else if(event.target.id='incrase'){
-        
+
     //     speed= speed/1.35;
     //     level+=1;
     //     levelElement.innerHTML=level
     // }
-    
+
 }
 
 
@@ -291,7 +292,7 @@ function levelDown(){
     if(speed>=700){
         speed=700;
     }
-    else{ 
+    else{
     speed=speed*1.35;
     }
     if(level<=1){
