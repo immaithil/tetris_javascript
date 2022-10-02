@@ -49,8 +49,28 @@
     <audio id="longDrop" src="/bigDrop.wav"></audio>
     <audio id="upAndDown" src="http://www.bndclan.com/Bend3r/Bend3r/hl-content/cstrike/sound/tetris/selection.wav"></audio>
 
+    <!-- New Script for arrow functions -->
+    <script>
+        document.onkeydown = checkKey;
+        function checkKey(e) {
+            e = e || window.event;
+            if (e.keyCode == '38') {
+                document.getElementById('up').click()
+            }
+            else if (e.keyCode == '40') {
+                document.getElementById('down').click()
+            }
+            else if (e.keyCode == '37') {
+                document.getElementById('left').click()
+            }
+            else if (e.keyCode == '39') {
+                document.getElementById('right').click()
+            }
+        }
+    </script>
+    <!-- Script End -->
+
     <script src="tetrominoes.js"></script>
     <script src="tetris.js"></script>
 </body>
-
 </html>
